@@ -7,4 +7,3 @@ def isPrimeNumber(num):
 for i in range(100):
     print(i, 'ist eine Primzahl'if isPrimeNumber(i) == True else 'ist keine Primzahl' )
         
-

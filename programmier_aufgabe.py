@@ -25,7 +25,7 @@ class SparseVector():
     # Erstellt Liste um vollständige reibweise darzustellen.
     def getVectorWithZeroValues(self):
         vector = []
-        for index in range(0, self.dimension):
+        for index in range(1, self.dimension + 1):
             non_zero_value = self.getNonzeroValueByIndex(index)
             if (non_zero_value is not None):
                 vector.append(non_zero_value)
@@ -35,7 +35,7 @@ class SparseVector():
     # überprüft, ob index i kleiner als dimension und positiv ist, dann Vektorelement mit index i, diesen Wert(value) erhalten
     #TODO: Name ändern, verstehe setNonzeroValue(value, index) nicht ist es setter oder getter?
     def getNonzeroValueByIndex(self, index: int):
-        if (self.dimension <= index or index < 0):
+        if (self.dimension < index or index <= 0):
             return None
         if (index in self.nonzeroIndexes):
             i = self.nonzeroIndexes.index(index)
@@ -57,7 +57,7 @@ def addSparse(sparse_vector1: SparseVector, sparse_vector2: SparseVector) -> Spa
     non_zero_values = []
     for index, value in enumerate(summed_vector):
         if (value != 0):
-            non_zero_indexes.append(index)
+            non_zero_indexes.append(index + 1)
             non_zero_values.append(value)
     return SparseVector(len(summed_vector), non_zero_values, non_zero_indexes) 
 
@@ -79,7 +79,7 @@ def createRandomSparse(dimension: int, max_non_zero_values: int, start: int, end
     non_zero_indexes = []
     non_zero_values = []
     while True:
-        index = random.randint(0, dimension-1)
+        index = random.randint(1, dimension)
         value = random.randint(start, end)
         if (index not in non_zero_indexes):
             non_zero_indexes.append(index)
@@ -88,8 +88,9 @@ def createRandomSparse(dimension: int, max_non_zero_values: int, start: int, end
     return SparseVector(dimension, non_zero_values, sorted(non_zero_indexes))  
 
 
+
 sparse1 = SparseVector(10, [1,2,3,4], [2,3,4,5])
-sparse2 = SparseVector(10, [1,5,6,8], [0,1,4,9])
+sparse2 = SparseVector(10, [3,5,6,8], [1,2,4,9])
 # Tests
 print('-----------------------')
 print('Sparse1')
