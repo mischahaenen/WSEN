@@ -33,7 +33,7 @@ class SparseVector():
                 vector.append(0)
         return vector 
     # überprüft, ob index i kleiner als dimension und positiv ist, dann Vektorelement mit index i, diesen Wert(value) erhalten
-    #TODO: Name ändern, verstehe setNonzeroValue(value, index) nicht ist es setter oder getter?
+    # Früher setNonzeroValue(value, index)
     def getNonzeroValueByIndex(self, index: int):
         if (self.dimension < index or index <= 0):
             return None
@@ -71,10 +71,7 @@ def dotSparse(sparse_vector1: SparseVector, sparse_vector2: SparseVector) -> int
     zipped_vector = zip(vector1, vector2)
     return sum(i[0] * i[1] for i in zipped_vector)
 
-# TODO: können parameter auch anders benannt werden? 
-# die ein Objekt der Klasse SparseVektor mit den folgenden Eigenschaften erzeugt
 # Dimension n, höchstens m von Null verschiedene Einträge, deren Wert im Intervall [a,b] liegen.
-# Diese Einträge sind zufällig im ganzen Vektor verteilt.
 def createRandomSparse(dimension: int, max_non_zero_values: int, start: int, end: int) -> SparseVector:
     non_zero_indexes = []
     non_zero_values = []
