@@ -3,15 +3,13 @@ class Person():
         self.name = name
         self.alter = alter
     def __str__(self) -> str: return f'{self.name} ist {self.alter} Jahre alt' 
-        
+    
     def display(self) -> str: return f'{self.name} ist {self.alter} Jahre alt'
-    
-    
 mischa = Person('Mischa', 24)
 print(mischa)
-
 class Student(Person):
     def __init__(self, name, alter, modul):
+        # ODER: Person.__init__(self, name, alter)
         super().__init__(name, alter)
         self.modul = modul;
     def display(self) -> str:
@@ -19,6 +17,8 @@ class Student(Person):
 
 student = Student('Mischa', 24, 'Python')
 print(student.display())
+
+
 
 
 from dataclasses import dataclass
