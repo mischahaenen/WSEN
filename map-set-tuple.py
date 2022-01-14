@@ -6,8 +6,11 @@ Comment'''
 #Operatoren
 print(2 + 3 * 6)
 print((2 + 3) * 6)
+print(2. - 1)
 print(2 ** 8)
+print(2 ** -2)
 print(23 // 7)
+print(23 / 7)
 print(23 % 7)
 print((5 - 1) * ((7 + 1) / (3 - 1)))
 
@@ -28,7 +31,6 @@ print(y)
 bob = Bob = _bob = _2_bob_= bob_2 = BoB = 'Bob'
 # not allowed 2bob /bob boB*b 
 
-# Functions
 # Numbers
 print(str(29))
 print(int(7.7))
@@ -48,10 +50,16 @@ print(test.count('ei'))
 print(test.find('ei'))
 print(test.find('ei',9))
 print(test.rfind('ei'))
+print(test.partition('ei'))
+print(test.rpartition('ei'))
 print(test.replace('ist', 'war'))
-
+# list[<start>:<stop>:<step>] -> stop index is not included
+print('1234'[::-1])
+print('1234'[4:0:-1])
+print('1234'[0:4:2])
 # Lists / Besteht aus unterschiedlichen Objekttypen und ist veränderbar
 liste = [0,1,2,3]
+print(len([]) == False)
 print(len(liste))
 print(sum(liste))
 print(max(liste))
@@ -62,8 +70,10 @@ liste.sort()
 print(liste)
 liste.reverse()
 print(liste)
-# Remove Value
+# Remove Value returns None
 liste.remove(2)
+# pop with index removes, whitout remove last index returns  value
+print(liste.pop())
 # Remove by index
 del liste[1]
 # Provides index and element

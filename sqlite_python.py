@@ -22,8 +22,8 @@ zeiger.execute("DELETE FROM personen WHERE nachname=?", ('Haenen',))
 verbindung.commit()
 
 # Show entries
-''' for row in zeiger.execute('SELECT * FROM personen'):
-        print(row) '''
+for row in zeiger.execute('SELECT * FROM personen'):
+        print(row)
         
 # DROP TABLE 
 drop_table = "DROP TABLE personen"
@@ -38,6 +38,9 @@ zeiger = verbindung.cursor()
 personen_table = "CREATE TABLE IF NOT EXISTS personen(name TEXT, vorname TEXT, personalnummer INTEGER PRIMARY KEY, gehalt REAL, geburtstag TEXT)"
 zeiger.execute(personen_table)
 verbindung.commit()
+# Create person
+insert_into = "INSERT INTO personen VALUES('Mischa','Haenen',1234,3500.00,'15.03.62')"
+zeiger.execute(insert_into)
 # Create persons
 insert_into = "INSERT INTO personen VALUES(?,?,?,?,?)"
 personen = [
@@ -67,3 +70,5 @@ zeiger.execute("DROP TABLE personen")
 verbindung.commit()
 
 verbindung.close()
+
+
